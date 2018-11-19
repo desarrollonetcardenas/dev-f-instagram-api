@@ -15,6 +15,12 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
+    telephone: {
+        type: String
+    },
+    gender: {
+        type: String
+    },
     user_name: {
         type: String,
         required: true

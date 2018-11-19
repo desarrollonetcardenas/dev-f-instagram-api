@@ -5,8 +5,8 @@ type Query {
 type Mutation {
     prueba( name: String! ): String,
     imprimir( saludo: String! ): String,
-    login( user: String!, password: String ): Token,
-    singup( data: UserInput! ): String
+    login( user: String!, password: String ): AuthToken,
+    singup( data: UserInput! ): AuthToken
 }
 
 
@@ -19,6 +19,7 @@ input UserInput {
 }
 
 
-type Token {
-    value: String!
+type AuthToken {
+    token: String!,
+    id: String
 }

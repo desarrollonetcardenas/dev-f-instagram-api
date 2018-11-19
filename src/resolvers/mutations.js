@@ -1,6 +1,7 @@
-
 const { Map } = require('immutable');
-const UserSchema = require('../schemas/users');
+
+const createToken = require('../utils/createToken');
+const Users = require('../schemas/users');
 
 function prueba( _, args, context, info ) {
     console.log('Name: ', args.name);
@@ -25,22 +26,23 @@ function login( _, args, context, info ) {
 
 function singup(_, args, context, info) {
 
-    console.log(args);
-
-
-    UserSchema.create( args.data ).then(
+    return Users.create( args.data ).then(
         (user) => {
-            console.log(user);
-            return "User created successfully.";
+            const token = createToken( user );
+
+            return { token, id: args._id };
         },
-        (error) => {
-            return `Error trying to create user document: ${ error }`;
+        (err) => {
+            throw new Error( err.message );
         }
     )
     .catch(
-        (err) => {return `Error: ${ err }`;}
+        (err) => {
+            throw new Error( err );
+        }
     );
 }
+
 
 
 module.exports = {
