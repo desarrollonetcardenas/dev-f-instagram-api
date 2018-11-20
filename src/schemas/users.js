@@ -33,3 +33,4 @@ const UserSchema = new Schema({
 
 
 module.exports = mongoose.model('usersInstagram', UserSchema, 'usersInstagram');
+
