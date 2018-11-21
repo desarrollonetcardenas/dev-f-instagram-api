@@ -72,3 +72,4 @@ mongoose.Types.ObjectId.prototype.valueOf = function() {
 }
 
 module.exports =  mongoose.model('movies',MovieSchema);
+

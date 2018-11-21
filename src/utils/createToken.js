@@ -12,3 +12,4 @@ module.exports = ( user )  => {
 
     return token;
 };
+
