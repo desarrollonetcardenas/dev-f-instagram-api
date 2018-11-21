@@ -44,52 +44,10 @@ function singup(_, args, context, info) {
     );
 }
 
-
-function createMovie(_, args, context, info) {
-
-    return Movies.create( args.data ).then(
-        (movie) => {
-            console.log('Movie created with id: ', movie._id);
-            return movie;
-        },
-        (err) => {
-            throw new Error( err );
-        }
-    );
-}
-
-function updateMovie(_, args, context, info) {
-    return Movies.findByIdAndUpdate(args.id, { $set: args.data }, { new: true } ).then(
-        (movie) => {
-            return movie;
-        }
-    )
-    .catch(
-        (error) => {
-            throw new Error( error );
-        }
-    );
-}
-
-
-function deleteMovie(_, args, context, info) {
-    return Movies.findOneAndUpdate({ _id: args.id }, { $set: {is_active: false} }).then(
-        (movie) => {
-            return "Movies deleted";
-        }
-    )
-    .catch((error) => {
-        throw new Error( error );
-    });
-}
-
 module.exports = {
     prueba,
     imprimir,
     login,
-    singup,
-    createMovie,
-    updateMovie,
-    deleteMovie
+    singup
 }
 

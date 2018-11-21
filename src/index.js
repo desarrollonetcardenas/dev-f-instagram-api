@@ -10,9 +10,9 @@ const Query = require('./resolvers/query');
  */
 
 
-const MONGO_URL = 'mongodb://admin:NhIHK3LLTnzeyi2F@cluster0-shard-00-00-sdkax.mongodb.net:27017,cluster0-shard-00-01-sdkax.mongodb.net:27017,cluster0-shard-00-02-sdkax.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true';
+const MONGO_URL = 'mongodb://admin:xQTSZl2Zy6OQreuf@cluster0-shard-00-00-sdkax.mongodb.net:27017,cluster0-shard-00-01-sdkax.mongodb.net:27017,cluster0-shard-00-02-sdkax.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true';
 
-process.env.MY_SECRET = 'GSzjjpkgSoPyjukL';
+process.env.MY_SECRET = 'xQTSZl2Zy6OQreuf';
 
 mongoose.connect(MONGO_URL, {
     useNewUrlParser: true
@@ -47,7 +47,7 @@ const server = new GraphQLServer({
 
 
 const options = {
-    port: 8002,
+    port: 8001,
     endpoint: '/graphql',
     playground: '/playground'
 };
